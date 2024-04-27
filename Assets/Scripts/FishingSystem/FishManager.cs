@@ -21,6 +21,7 @@ public class FishManager : MonoBehaviour
     }
 
     public FishesList listFishesList;
+    public int Score = 0;
     
     [SerializeField] private Button fishButton;
     [SerializeField] private Canvas canvas;

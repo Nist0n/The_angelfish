@@ -6,10 +6,23 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI maxScoreText;
     [SerializeField] private TextMeshProUGUI scoreText;
+
+    private FishManager _fishManager;
+
+    private void Start()
+    {
+        _fishManager = FindObjectOfType<FishManager>();
+    }
 
     private void Update()
     {
-        scoreText.text = $"{PlayerPrefs.GetInt("score")}";
+        maxScoreText.text = $"Рекорд: {PlayerPrefs.GetInt("score")}";
+        scoreText.text = $"Очки: {_fishManager.Score}";
+        if (_fishManager.Score >= PlayerPrefs.GetInt("score"))
+        {
+            PlayerPrefs.SetInt("score", _fishManager.Score);
+        }
     }
 }

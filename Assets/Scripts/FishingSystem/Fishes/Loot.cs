@@ -18,6 +18,7 @@ public class Loot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
 
     private Fishing _fishing;
+    private FishManager _fishManager;
 
     private bool _timeIsRunning = true;
     [SerializeField] private float timeRemaining;
@@ -34,6 +35,7 @@ public class Loot : MonoBehaviour
     private void Start()
     {
         _fishing = FindObjectOfType<Fishing>();
+        _fishManager = FindObjectOfType<FishManager>();
         scoreText.text = $"{score}";
         
         if (lootType == LootType.Common) _currentHealth = Random.Range(5, 15);
@@ -85,7 +87,7 @@ public class Loot : MonoBehaviour
         timeText.color = Color.clear;
         gameObject.GetComponent<Button>().enabled = false;
         image.SetActive(true);
-        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + score);
+        _fishManager.Score += score;
         _fishing.GetOutRod();
         Destroy(gameObject, 2.2f);
     }
