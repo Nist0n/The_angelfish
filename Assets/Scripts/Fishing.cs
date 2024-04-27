@@ -21,6 +21,11 @@ public class FishingRod : MonoBehaviour
             StartCoroutine(CastRod());
         }
 
+        if (Input.GetKeyDown("Space"))
+        {
+            Debug.Log("gg");
+        }
+
         if (isCasted && Input.GetMouseButtonDown(1))
         {
             PullRod();
