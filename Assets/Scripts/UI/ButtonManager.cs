@@ -11,6 +11,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject backButton;
     public GameObject game;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject backGround;
 
     public void OpenMainMenu()
     {
@@ -18,6 +19,7 @@ public class ButtonManager : MonoBehaviour
         settingsMenu.SetActive(false);
         inGameMenu.SetActive(false);
         mainMenu.SetActive(true);
+        backGround.SetActive(true);
     }
 
     public void CloseMainMenu()

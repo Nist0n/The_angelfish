@@ -24,7 +24,7 @@ public class FishManager : MonoBehaviour
     public int Score = 0;
     
     [SerializeField] private Button fishButton;
-    [SerializeField] private Canvas canvas;
+    [SerializeField] private GameObject canvas;
 
     private Fishing _fishing;
     private GameObject _currentFish;
