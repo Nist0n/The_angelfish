@@ -101,5 +101,5 @@ MonoBehaviour:
   volume: 0
   voxelResolution: 0.51
   centerOfMass: {x: 0, y: 0, z: 0}
-  waterLevelOffset: 321
+  waterLevelOffset: -0.6
   colliders: []
