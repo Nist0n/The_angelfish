@@ -66,13 +66,15 @@ public class Timer : MonoBehaviour
 
     public void SpawnHideObjects()
     {
+        
         for (int i = 0; i < spawnPoints.Count; i++)
         {
-            Vector3 spawnElement = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform.position;
+            int rand = Random.Range(0, spawnPoints.Count);
+            Vector3 spawnElement = spawnPoints[rand].transform.position;
             GameObject prefab = prefabsVariations[UnityEngine.Random.Range(0, prefabsVariations.Length)];
             GameObject clone = Instantiate(prefab, spawnElement, Quaternion.identity);
             hideObject.Add(clone);
-            spawnPoints.RemoveAt(i);
+            spawnPoints.RemoveAt(rand);
         }
     }
 
