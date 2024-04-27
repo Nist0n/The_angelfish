@@ -82,11 +82,6 @@ public class Timer : MonoBehaviour
         SpawnHideObjects();
     }
 
-    public void PauseTimer()
-    {
-        start = false;
-    }
-
     public void StopTimer()
     {
         start = false;
