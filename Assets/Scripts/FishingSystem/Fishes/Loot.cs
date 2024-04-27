@@ -85,7 +85,7 @@ public class Loot : MonoBehaviour
         timeText.color = Color.clear;
         gameObject.GetComponent<Button>().enabled = false;
         image.SetActive(true);
-        //scorePoints
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score") + score);
         _fishing.GetOutRod();
         Destroy(gameObject, 2.2f);
     }

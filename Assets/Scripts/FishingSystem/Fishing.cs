@@ -9,6 +9,7 @@ public class Fishing : MonoBehaviour
     [SerializeField] private Transform point;
     [SerializeField] private LineRenderer lr;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject catchButton;
     
     public bool isCasted;
     public bool isPulling;
@@ -25,15 +26,6 @@ public class Fishing : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isCatching)
-        {
-            StartCoroutine(CastRod());
-        }
-        
-        if (isCasted && Input.GetMouseButtonDown(1))
-        {
-            GetOutRod();
-        }
     }
     
     private void LateUpdate()
@@ -45,21 +37,19 @@ public class Fishing : MonoBehaviour
         }
     }
 
-    public IEnumerator CastRod()
+    public void CastRod()
     {
-        //animator.SetTrigger("Cast");
-        isCatching = true;
-
-        yield return new WaitForSeconds(0.5f);
- 
-        _poplavok = Instantiate(baitPrefab, point.position, Quaternion.identity, point);
-
-        lr.positionCount = 2;
-        isCasted = true;
-        
-        animator.SetTrigger("startCatch");
-
-        StartCoroutine(_fishManager.StartFishing());
+        if (!isCatching)
+        {
+            catchButton.SetActive(false);
+            isCatching = true;
+            _poplavok = Instantiate(baitPrefab, point.position, Quaternion.identity, point);
+            lr.positionCount = 2;
+            isCasted = true;
+            animator.SetTrigger("startCatch");
+            
+            StartCoroutine(_fishManager.StartFishing());
+        }
     }
     
     public void PullRod()
@@ -75,6 +65,7 @@ public class Fishing : MonoBehaviour
         isCasted = false;
         lr.positionCount = 0;
         Destroy(_poplavok);
+        catchButton.SetActive(true);
         animator.SetTrigger("isStaying");
     }
 }

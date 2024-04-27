@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject settingsMenu;
     [SerializeField] GameObject inGameMenu;
-
+    
     public void OpenMainMenu()
     {
         settingsMenu.SetActive(false);
