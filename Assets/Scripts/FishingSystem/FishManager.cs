@@ -1,44 +1,74 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class FishManager : MonoBehaviour
 {
-    [SerializeField] private List<GameObject[]> fishes;
+    [System.Serializable]
+    public class Fishes
+    {
+        public List<GameObject> fishes;
+    }
+    
+    [System.Serializable]
+    public class FishesList
+    {
+        public List<Fishes> fishesList;
+    }
+
+    public FishesList listFishesList;
+    
     [SerializeField] private Button fishButton;
+    [SerializeField] private Canvas canvas;
 
     private Fishing _fishing;
+    private GameObject _currentFish;
+
+    private void Start()
+    {
+        _fishing = FindObjectOfType<Fishing>();
+    }
 
     public IEnumerator StartFishing()
     {
+        Debug.Log("Started");
         int time = Random.Range(3, 6);
         yield return new WaitForSeconds(time);
         //anim
-        int fish = Random.Range(0, 100);
+        int fish = Random.Range(0, 49);
         if (fish <= 49)
         {
-            int randLoot = Random.Range(0, fishes[0].Length - 1);
-            FishingGamePlay(fishes[0][randLoot]);
+            int randLoot = Random.Range(0, listFishesList.fishesList[0].fishes.Count - 1);
+            StartCoroutine(FishingGamePlay(listFishesList.fishesList[0].fishes[randLoot]));
         }
         else if (fish > 49 && fish <= 74)
         {
-            int randLoot = Random.Range(0, fishes[1].Length - 1);
-            FishingGamePlay(fishes[1][randLoot]);
+            int randLoot = Random.Range(0, listFishesList.fishesList[1].fishes.Count - 1);
+            StartCoroutine(FishingGamePlay(listFishesList.fishesList[1].fishes[randLoot]));
         }
         else if (fish > 74 && fish <= 94)
         {
-            int randLoot = Random.Range(0, fishes[2].Length - 1);
-            FishingGamePlay(fishes[2][randLoot]);
+            int randLoot = Random.Range(0, listFishesList.fishesList[2].fishes.Count - 1);
+            StartCoroutine(FishingGamePlay(listFishesList.fishesList[2].fishes[randLoot]));
         }
         else if (fish > 94 && fish <= 100)
         {
-            int randLoot = Random.Range(0, fishes[1].Length - 1);
-            FishingGamePlay(fishes[3][randLoot]);
+            int randLoot = Random.Range(0, listFishesList.fishesList[3].fishes.Count - 1);
+            StartCoroutine(FishingGamePlay(listFishesList.fishesList[3].fishes[randLoot]));
         }
-        //setactive Button
+    }
+
+    IEnumerator FishingGamePlay(GameObject fish)
+    {
+        _currentFish = fish;
+        Debug.Log("Catch");
+        fishButton.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
-        //deactive butt
+        fishButton.gameObject.SetActive(false);
 
         if (!_fishing.isPulling)
         {
@@ -46,9 +76,10 @@ public class FishManager : MonoBehaviour
         }
     }
 
-    public void FishingGamePlay(GameObject fish)
+    public void StartCatching()
     {
-        //anim
-        
+        _fishing.PullRod();
+        Instantiate(_currentFish, canvas.transform);
+        fishButton.gameObject.SetActive(false);
     }
 }
