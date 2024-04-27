@@ -669,7 +669,7 @@ RectTransform:
   m_GameObject: {fileID: 8970717903893018311}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 61.4}
-  m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8634417188311139802}
@@ -680,7 +680,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203.9, y: -386.7}
+  m_AnchoredPosition: {x: -234, y: 251}
   m_SizeDelta: {x: 292, y: 292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &658932476721299957
@@ -821,6 +821,7 @@ MonoBehaviour:
   currentHealthText: {fileID: 6482802195440216112}
   timeText: {fileID: 9218948625557192110}
   scoreText: {fileID: 977995571461237550}
+  gameUI: {fileID: 4738456701444953504, guid: e7df8e359fc014744a36eba79307f745, type: 3}
   timeRemaining: 4
   lootType: 1
 --- !u!95 &3514613266104986747

@@ -16,6 +16,7 @@ public class Loot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentHealthText;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject gameUI;
 
     private Fishing _fishing;
     private FishManager _fishManager;
@@ -73,7 +74,7 @@ public class Loot : MonoBehaviour
 
     IEnumerator EffectActive()
     {
-        GameObject temp = Instantiate(effect, transform);
+        GameObject temp = Instantiate(effect);
         yield return new WaitForSeconds(0.5f);
         Destroy(temp);
     }
