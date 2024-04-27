@@ -14,8 +14,12 @@ public class Loot : MonoBehaviour
     [SerializeField] private GameObject image;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI currentHealthText;
+    [SerializeField] private TextMeshProUGUI timeText;
 
     private Fishing _fishing;
+
+    private bool _timeIsRunning = true;
+    [SerializeField] private float timeRemaining;
     public enum LootType
     {
         Common,
@@ -38,6 +42,16 @@ public class Loot : MonoBehaviour
 
     private void Update()
     {
+        if (_timeIsRunning)
+        {
+            timeRemaining -= Time.deltaTime;
+            timeText.text = timeRemaining.ToString("0.00");
+
+            if (timeRemaining <= 0)
+            {
+                TimeIsOut();
+            }
+        }
         currentHealthText.text = $"{_currentHealth}";
     }
 
@@ -49,14 +63,7 @@ public class Loot : MonoBehaviour
         
         if (_currentHealth <= 0)
         {
-            gameObject.GetComponent<Image>().color = Color.clear;
-            text.color = Color.clear;
-            currentHealthText.color = Color.clear;
-            gameObject.GetComponent<Button>().enabled = false;
-            image.SetActive(true);
-            //scorePoints
-            _fishing.GetOutRod();
-            Destroy(gameObject, 2.2f);
+            CatchFish();
         }
     }
 
@@ -65,5 +72,25 @@ public class Loot : MonoBehaviour
         GameObject temp = Instantiate(effect, transform);
         yield return new WaitForSeconds(0.5f);
         Destroy(temp);
+    }
+
+    private void CatchFish()
+    {
+        _timeIsRunning = false;
+        gameObject.GetComponent<Image>().color = Color.clear;
+        text.color = Color.clear;
+        currentHealthText.color = Color.clear;
+        timeText.color = Color.clear;
+        gameObject.GetComponent<Button>().enabled = false;
+        image.SetActive(true);
+        //scorePoints
+        _fishing.GetOutRod();
+        Destroy(gameObject, 2.2f);
+    }
+
+    private void TimeIsOut()
+    {
+        _fishing.GetOutRod();
+        Destroy(gameObject);
     }
 }

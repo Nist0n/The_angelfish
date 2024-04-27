@@ -595,79 +595,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1176267965
-PrefabInstance:
+--- !u!84 &1458826550
+RenderTexture:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3023242500596386256, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: point
-      value: 
-      objectReference: {fileID: 1021416237}
-    - target: {fileID: 3547453515355284205, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_Name
-      value: Udochka
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 523.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 312.96002
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6179392025773169496, guid: a6644b46bcd56b9409bffddcb97f6119,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a6644b46bcd56b9409bffddcb97f6119, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterDepthMap
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 1024
+  m_Height: 1024
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 94
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1001 &1650303987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -899,44 +864,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668530777}
   m_CullTransparentMesh: 1
---- !u!84 &1832359790
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: WaterDepthMap
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 1024
-  m_Height: 1024
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 94
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1 &1864050775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1034,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3428305614706283370
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1292818665507506678, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: point
+      value: 
+      objectReference: {fileID: 1021416237}
+    - target: {fileID: 4198030530187744392, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_Name
+      value: Udochka
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 523.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 312.96002
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735587725088380255, guid: a6644b46bcd56b9409bffddcb97f6119,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6644b46bcd56b9409bffddcb97f6119, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1117,5 +1117,5 @@ SceneRoots:
   - {fileID: 1650303987}
   - {fileID: 1021416237}
   - {fileID: 1929567093}
-  - {fileID: 1176267965}
   - {fileID: 382952906}
+  - {fileID: 3428305614706283370}
