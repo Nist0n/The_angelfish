@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class BabkaChallenge : MonoBehaviour
 {
+    private Timer _timer;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _timer = FindObjectOfType<Timer>();
+        _timer.StartTimer();
     }
 }
