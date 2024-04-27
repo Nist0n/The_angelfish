@@ -29,7 +29,7 @@ public class HideObjects : MonoBehaviour
 
     public void DestroyObject()
     {
-        if (gameObject.CompareTag("HideObject"))
+       if (gameObject.CompareTag("HideObject"))
         {
             Timer.instance.hideObject.Remove(gameObject);
         }

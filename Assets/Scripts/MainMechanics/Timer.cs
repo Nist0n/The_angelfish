@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Timer : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI value;
 
     [Header("----------------------Random Spawn---------------------")]
-    public GameObject[] spawnPoints;
+    public List<GameObject> spawnPoints;
     public GameObject[] prefabsVariations;
 
 
@@ -51,11 +52,7 @@ public class Timer : MonoBehaviour
             time -= Time.deltaTime;
             value.text = time.ToString("0.00");
         }
-        if (time <= 0)
-        {
-            StopTimer();
-        }
-        if (hideObject.Count == 0)
+        if ((start == true ) && (hideObject.Count == 0))
         {
             victory.SetActive(true);
             StopTimer();
@@ -63,17 +60,19 @@ public class Timer : MonoBehaviour
         if ((time <= 0) && (hideObject.Count > 0))
         {
             loose.SetActive(true);
+            StopTimer();
         }
     }
 
     public void SpawnHideObjects()
     {
-        for (int i = 0; i < spawnPoints.Length; i++)
+        for (int i = 0; i < spawnPoints.Count; i++)
         {
-            Vector3 spawnElement = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].transform.position;
+            Vector3 spawnElement = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].transform.position;
             GameObject prefab = prefabsVariations[UnityEngine.Random.Range(0, prefabsVariations.Length)];
             GameObject clone = Instantiate(prefab, spawnElement, Quaternion.identity);
             hideObject.Add(clone);
+            spawnPoints.RemoveAt(i);
         }
     }
 
