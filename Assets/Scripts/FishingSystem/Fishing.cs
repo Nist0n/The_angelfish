@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FishingRod : MonoBehaviour
+public class Fishing : MonoBehaviour
 {
     public bool isCasted;
     public bool isPulling;
@@ -20,15 +20,10 @@ public class FishingRod : MonoBehaviour
         {
             StartCoroutine(CastRod());
         }
-
-        if (Input.GetKeyDown("Space"))
-        {
-            Debug.Log("gg");
-        }
-
+        
         if (isCasted && Input.GetMouseButtonDown(1))
         {
-            PullRod();
+            GetOutRod();
         }
     }
     
@@ -58,8 +53,13 @@ public class FishingRod : MonoBehaviour
     {
         //animator.SetTrigger("Pull");
         isCasted = false;
-        lr.positionCount = 0;
         isPulling = true;
+    }
+
+    public void GetOutRod()
+    {
+        isPulling = false;
+        lr.positionCount = 0;
         Destroy(_poplavok);
     }
 }

@@ -8,6 +8,8 @@ public class FishManager : MonoBehaviour
     [SerializeField] private List<GameObject[]> fishes;
     [SerializeField] private Button fishButton;
 
+    private Fishing _fishing;
+
     public IEnumerator StartFishing()
     {
         int time = Random.Range(3, 6);
@@ -37,6 +39,11 @@ public class FishManager : MonoBehaviour
         //setactive Button
         yield return new WaitForSeconds(2f);
         //deactive butt
+
+        if (!_fishing.isPulling)
+        {
+            _fishing.GetOutRod();
+        }
     }
 
     public void FishingGamePlay(GameObject fish)
