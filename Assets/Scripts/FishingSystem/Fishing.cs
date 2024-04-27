@@ -8,13 +8,13 @@ public class Fishing : MonoBehaviour
     [SerializeField] private GameObject startOfRope;
     [SerializeField] private Transform point;
     [SerializeField] private LineRenderer lr;
+    [SerializeField] private Animator animator;
     
     public bool isCasted;
     public bool isPulling;
 
     private bool isCatching;
- 
-    private Animator _animator;
+    
     private GameObject _poplavok;
     private FishManager _fishManager;
 
@@ -56,6 +56,8 @@ public class Fishing : MonoBehaviour
 
         lr.positionCount = 2;
         isCasted = true;
+        
+        animator.SetTrigger("startCatch");
 
         StartCoroutine(_fishManager.StartFishing());
     }
@@ -73,5 +75,6 @@ public class Fishing : MonoBehaviour
         isCasted = false;
         lr.positionCount = 0;
         Destroy(_poplavok);
+        animator.SetTrigger("isStaying");
     }
 }
