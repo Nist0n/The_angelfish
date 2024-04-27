@@ -39,25 +39,25 @@ public class FishManager : MonoBehaviour
         int time = Random.Range(3, 6);
         yield return new WaitForSeconds(time);
         //anim
-        int fish = Random.Range(0, 49);
+        int fish = Random.Range(0, 100);
         if (fish <= 49)
         {
-            int randLoot = Random.Range(0, listFishesList.fishesList[0].fishes.Count - 1);
+            int randLoot = Random.Range(0, listFishesList.fishesList[0].fishes.Count);
             StartCoroutine(FishingGamePlay(listFishesList.fishesList[0].fishes[randLoot]));
         }
         else if (fish > 49 && fish <= 74)
         {
-            int randLoot = Random.Range(0, listFishesList.fishesList[1].fishes.Count - 1);
+            int randLoot = Random.Range(0, listFishesList.fishesList[1].fishes.Count);
             StartCoroutine(FishingGamePlay(listFishesList.fishesList[1].fishes[randLoot]));
         }
         else if (fish > 74 && fish <= 94)
         {
-            int randLoot = Random.Range(0, listFishesList.fishesList[2].fishes.Count - 1);
+            int randLoot = Random.Range(0, listFishesList.fishesList[2].fishes.Count);
             StartCoroutine(FishingGamePlay(listFishesList.fishesList[2].fishes[randLoot]));
         }
         else if (fish > 94 && fish <= 100)
         {
-            int randLoot = Random.Range(0, listFishesList.fishesList[3].fishes.Count - 1);
+            int randLoot = Random.Range(0, listFishesList.fishesList[3].fishes.Count);
             StartCoroutine(FishingGamePlay(listFishesList.fishesList[3].fishes[randLoot]));
         }
     }

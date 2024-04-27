@@ -15,6 +15,7 @@ public class Loot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private TextMeshProUGUI currentHealthText;
     [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
     private Fishing _fishing;
 
@@ -33,11 +34,12 @@ public class Loot : MonoBehaviour
     private void Start()
     {
         _fishing = FindObjectOfType<Fishing>();
+        scoreText.text = $"{score}";
         
         if (lootType == LootType.Common) _currentHealth = Random.Range(5, 15);
-        if (lootType == LootType.Uncommon) _currentHealth = Random.Range(15, 25);
-        if (lootType == LootType.Rare) _currentHealth = Random.Range(25, 35);
-        if (lootType == LootType.GoldenFish) _currentHealth = Random.Range(50, 75);
+        if (lootType == LootType.Uncommon) _currentHealth = Random.Range(20, 29);
+        if (lootType == LootType.Rare) _currentHealth = Random.Range(35, 50);
+        if (lootType == LootType.GoldenFish) _currentHealth = Random.Range(65, 85);
     }
 
     private void Update()
