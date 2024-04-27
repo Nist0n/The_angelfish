@@ -1,13 +1,25 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class Loot : MonoBehaviour
 {
-    private int _currentHealth;
+    [SerializeField] private int _currentHealth;
+    [SerializeField] private GameObject effect;
+    [SerializeField] private int score;
+    [SerializeField] private GameObject image;
+    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI currentHealthText;
+    [SerializeField] private TextMeshProUGUI timeText;
+
+    private Fishing _fishing;
+
+    private bool _timeIsRunning = true;
+    [SerializeField] private float timeRemaining;
     public enum LootType
     {
         Common,
@@ -17,26 +29,68 @@ public class Loot : MonoBehaviour
     }
 
     public LootType lootType;
-    [SerializeField] private int score;
-    public Image image;
 
     private void Start()
     {
+        _fishing = FindObjectOfType<Fishing>();
+        
         if (lootType == LootType.Common) _currentHealth = Random.Range(5, 15);
         if (lootType == LootType.Uncommon) _currentHealth = Random.Range(15, 25);
         if (lootType == LootType.Rare) _currentHealth = Random.Range(25, 35);
         if (lootType == LootType.GoldenFish) _currentHealth = Random.Range(50, 75);
     }
-    
+
+    private void Update()
+    {
+        if (_timeIsRunning)
+        {
+            timeRemaining -= Time.deltaTime;
+            timeText.text = timeRemaining.ToString("0.00");
+
+            if (timeRemaining <= 0)
+            {
+                TimeIsOut();
+            }
+        }
+        currentHealthText.text = $"{_currentHealth}";
+    }
+
     public void ClickToDestroy()
     {
         _currentHealth--;
+        
+        StartCoroutine(EffectActive());
+        
         if (_currentHealth <= 0)
         {
-            //Instantiate(image);
-            //effect
-            //scorePoints
-            Destroy(gameObject);
+            CatchFish();
         }
+    }
+
+    IEnumerator EffectActive()
+    {
+        GameObject temp = Instantiate(effect, transform);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(temp);
+    }
+
+    private void CatchFish()
+    {
+        _timeIsRunning = false;
+        gameObject.GetComponent<Image>().color = Color.clear;
+        text.color = Color.clear;
+        currentHealthText.color = Color.clear;
+        timeText.color = Color.clear;
+        gameObject.GetComponent<Button>().enabled = false;
+        image.SetActive(true);
+        //scorePoints
+        _fishing.GetOutRod();
+        Destroy(gameObject, 2.2f);
+    }
+
+    private void TimeIsOut()
+    {
+        _fishing.GetOutRod();
+        Destroy(gameObject);
     }
 }
