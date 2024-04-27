@@ -9,14 +9,21 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
     public static Timer instance;
-    
+
     [SerializeField] GameObject victory;
     [SerializeField] GameObject loose;
 
+    [Header("----------------------Timer---------------------")]
     public float time;
     public bool start;
     public TextMeshProUGUI value;
 
+    [Header("----------------------Random Spawn---------------------")]
+    public GameObject[] spawnPoints;
+    public GameObject[] prefabsVariations;
+
+
+    [Header("----------------------Hide Objects---------------------")]
     public List<GameObject> hideObject;
 
     private void Awake()
@@ -59,9 +66,21 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public void SpawnHideObjects()
+    {
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            Vector3 spawnElement = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].transform.position;
+            GameObject prefab = prefabsVariations[UnityEngine.Random.Range(0, prefabsVariations.Length)];
+            GameObject clone = Instantiate(prefab, spawnElement, Quaternion.identity);
+            hideObject.Add(clone);
+        }
+    }
+
     public void StartTimer()
     {
         start = true;
+        SpawnHideObjects();
     }
 
     public void PauseTimer()
