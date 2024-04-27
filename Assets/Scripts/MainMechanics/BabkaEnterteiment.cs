@@ -12,19 +12,21 @@ public class BabkaEnterteiment : MonoBehaviour
     
     void Start()
     {
-        ChallengeTimer = 20f;
+        ChallengeTimer = 12.5f;
         _timerIsActivated = false;
         StartTimer();
     }
     
     void Update()
     {
+        ChallengeTimer = Mathf.Clamp(ChallengeTimer, 2f, 100f);
+        
         if (_timerIsActivated)
         {
             _timer -= Time.deltaTime;
             if (_timer <= 0)
             {
-                Instantiate(babka);
+                babka.SetActive(true);
             }
         }
     }
@@ -33,5 +35,10 @@ public class BabkaEnterteiment : MonoBehaviour
     {
         _timerIsActivated = true;
         _timer = Random.Range(40, 60);
+    }
+
+    public void DecreaseTime()
+    {
+        ChallengeTimer -= 1.5f;
     }
 }
