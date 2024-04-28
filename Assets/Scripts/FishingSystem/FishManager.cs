@@ -74,6 +74,7 @@ public class FishManager : MonoBehaviour
 
         if (!_fishing.isPulling)
         {
+            AudioManager.instance.PlaySFX("fishOut");
             _fishing.GetOutRod();
         }
     }

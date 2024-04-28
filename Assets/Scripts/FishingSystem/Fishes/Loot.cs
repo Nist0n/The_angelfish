@@ -73,6 +73,7 @@ public class Loot : MonoBehaviour
             if (lootType == LootType.GoldenFish)
             {
                 StartCoroutine(GoldenFish());
+                AudioManager.instance.PlaySFX("catchGoldFish");
             }
             else
             {
@@ -114,6 +115,7 @@ public class Loot : MonoBehaviour
 
     private void TimeIsOut()
     {
+        AudioManager.instance.PlaySFX("fishOut");
         _fishing.GetOutRod();
         Destroy(gameObject);
     }
