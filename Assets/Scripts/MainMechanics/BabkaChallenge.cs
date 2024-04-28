@@ -22,6 +22,7 @@ public class BabkaChallenge : MonoBehaviour
         if (!IsStarted)
         {
             _timer.StartTimer(_babka.ChallengeTimer);
+            AudioManager.instance.PlaySFX("clean");
             IsStarted = true;
         }
     }
