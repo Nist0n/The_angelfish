@@ -13,9 +13,10 @@ public class StartGameCamera : MonoBehaviour
         Vector3 newPos = Vector3.MoveTowards(transform.position, point.transform.position, 20 * Time.deltaTime);
         transform.position = newPos;
 
-        if (Vector3.Distance(transform.position, point.transform.position) <= 5f)
+        if (Vector3.Distance(transform.position, point.transform.position) <= 2f)
         {
             gameUI.SetActive(true);
+            gameObject.GetComponent<StartGameCamera>().enabled = false;
         }
     }
 }

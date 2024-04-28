@@ -13,6 +13,13 @@ public class Timer : MonoBehaviour
 
     [SerializeField] GameObject victory;
     [SerializeField] GameObject loose;
+    [SerializeField] GameObject gameUI;
+    [SerializeField] GameObject babkaButton;
+
+    private BabkaEnterteiment _babka;
+    [SerializeField] private BabkaChallenge _babkaCh;
+
+    private bool _isGoing = false;
 
     [Header("----------------------Timer---------------------")]
     public float time;
@@ -43,21 +50,27 @@ public class Timer : MonoBehaviour
     void Start()
     {
         hideObject.AddRange(GameObject.FindGameObjectsWithTag("HideObject"));
+        _babka = FindObjectOfType<BabkaEnterteiment>();
     }
 
     void Update()
     {
-        if (start == true)
+        if (_isGoing)
         {
             time -= Time.deltaTime;
             value.text = time.ToString("0.00");
         }
         if ((start == true ) && (hideObject.Count == 0))
         {
-            victory.SetActive(true);
+            _babka.StartTimer();
+            _babka.DecreaseTime();
+            _babkaCh.ShowUI();
+            _babkaCh.IsStarted = false;
+            babkaButton.SetActive(false);
+            spawnPoints.Clear();
             StopTimer();
         }
-        if ((time <= 0) && (hideObject.Count > 0))
+        if (time <= 0)
         {
             loose.SetActive(true);
             StopTimer();
@@ -66,6 +79,12 @@ public class Timer : MonoBehaviour
 
     public void SpawnHideObjects()
     {
+        start = true;
+
+        foreach (var point in GameObject.FindGameObjectsWithTag("Spawnpoint"))
+        {
+            spawnPoints.Add(point);
+        }
         
         for (int i = 0; i < spawnPoints.Count; i++)
         {
@@ -78,16 +97,15 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void StartTimer()
+    public void StartTimer(float time)
     {
-        start = true;
-        SpawnHideObjects();
+        this.time = time;
+        _isGoing = true;
     }
 
     public void StopTimer()
     {
         start = false;
-        time = 0;
-        value.text = time.ToString("0.00");
+        _isGoing = false;
     }
 }

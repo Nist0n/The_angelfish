@@ -27,14 +27,16 @@ public class BabkaEnterteiment : MonoBehaviour
             if (_timer <= 0)
             {
                 babka.SetActive(true);
+                _timerIsActivated = false;
             }
+            Debug.Log(_timer);
         }
     }
 
     public void StartTimer()
     {
         _timerIsActivated = true;
-        _timer = Random.Range(40, 60);
+        _timer = Random.Range(10, 15);
     }
 
     public void DecreaseTime()
