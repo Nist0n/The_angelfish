@@ -13,5 +13,11 @@ public class CheatNIg : MonoBehaviour
         {
             Instantiate(goldFish, canvas.transform);
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            PlayerPrefs.SetInt("isFirstSession", 0);
+            PlayerPrefs.SetInt("score", 0);
+        }
     }
 }
