@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ecba79ba3554664093c62cdc63e9ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 4390437659189900058}
+  gameObjectL: {fileID: 4390437659189900058}
   duration: 0.1
   scale: {x: 1.5, y: 1.5, z: 1.5}
   color: {r: 1, g: 1, b: 1, a: 0}
