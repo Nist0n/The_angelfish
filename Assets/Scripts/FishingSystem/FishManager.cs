@@ -22,6 +22,7 @@ public class FishManager : MonoBehaviour
 
     public FishesList listFishesList;
     public int Score = 0;
+    public GameObject Wish;
     
     [SerializeField] private Button fishButton;
     [SerializeField] private GameObject canvas;
@@ -39,7 +40,7 @@ public class FishManager : MonoBehaviour
         Debug.Log("Started");
         int time = Random.Range(3, 6);
         yield return new WaitForSeconds(time);
-        //anim
+        AudioManager.instance.PlaySFX("fish");
         int fish = Random.Range(0, 100);
         if (fish <= 49)
         {

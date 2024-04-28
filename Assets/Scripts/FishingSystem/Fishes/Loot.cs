@@ -62,13 +62,22 @@ public class Loot : MonoBehaviour
 
     public void ClickToDestroy()
     {
+        AudioManager.instance.PlaySFX("Bulk");
+        
         _currentHealth--;
         
         StartCoroutine(EffectActive());
         
         if (_currentHealth <= 0)
         {
-            CatchFish();
+            if (lootType == LootType.GoldenFish)
+            {
+                StartCoroutine(GoldenFish());
+            }
+            else
+            {
+                CatchFish();
+            }
         }
     }
 
@@ -81,6 +90,7 @@ public class Loot : MonoBehaviour
 
     private void CatchFish()
     {
+        AudioManager.instance.PlaySFX("catch");
         _timeIsRunning = false;
         gameObject.GetComponent<Image>().color = Color.clear;
         text.color = Color.clear;
@@ -91,6 +101,15 @@ public class Loot : MonoBehaviour
         _fishManager.Score += score;
         _fishing.GetOutRod();
         Destroy(gameObject, 2.2f);
+    }
+
+    IEnumerator GoldenFish()
+    {
+        CatchFish();
+        yield return new WaitForSeconds(1f);
+        _fishManager.Wish.SetActive(true);
+        _fishManager.Wish.GetComponent<ChooseAWish>().CreateAWish();
+        Time.timeScale = 0;
     }
 
     private void TimeIsOut()

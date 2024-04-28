@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CheatNIg : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] private GameObject goldFish;
+    [SerializeField] private GameObject canvas;
+    
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Instantiate(goldFish, canvas.transform);
+        }
     }
 }

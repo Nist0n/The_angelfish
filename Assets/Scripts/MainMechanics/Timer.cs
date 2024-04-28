@@ -10,8 +10,7 @@ using UnityEngine.Rendering;
 public class Timer : MonoBehaviour
 {
     public static Timer instance;
-
-    [SerializeField] GameObject victory;
+    
     [SerializeField] GameObject loose;
     [SerializeField] GameObject gameUI;
     [SerializeField] GameObject babkaButton;
@@ -62,6 +61,7 @@ public class Timer : MonoBehaviour
         }
         if ((start == true ) && (hideObject.Count == 0))
         {
+            AudioManager.instance.PlaySFX("babkaLose");
             _babka.StartTimer();
             _babka.DecreaseTime();
             _babkaCh.ShowUI();
@@ -72,6 +72,7 @@ public class Timer : MonoBehaviour
         }
         if (time <= 0)
         {
+            AudioManager.instance.PlaySFX("meh");
             loose.SetActive(true);
             StopTimer();
         }

@@ -36,7 +36,7 @@ public class BabkaEnterteiment : MonoBehaviour
     public void StartTimer()
     {
         _timerIsActivated = true;
-        _timer = Random.Range(10, 15);
+        _timer = Random.Range(40, 55);
     }
 
     public void DecreaseTime()

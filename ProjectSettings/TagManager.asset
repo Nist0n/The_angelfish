@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HideObject
   - Spawnpoint
+  - wish
   layers:
   - Default
   - TransparentFX

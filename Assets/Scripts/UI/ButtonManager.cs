@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject game;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject backGround;
+    [SerializeField] private Image image;
 
     public void OpenMainMenu()
     {
@@ -24,14 +26,24 @@ public class ButtonManager : MonoBehaviour
 
     public void CloseMainMenu()
     {
-        StartCoroutine(CloseMainMenuCoroutine());
+        if (PlayerPrefs.GetInt("isFirstSession") == 0)
+        {
+            StartCoroutine(CloseMainMenuCoroutine());
+            image.gameObject.SetActive(true);
+        }
+        else
+        {
+            StartCoroutine(CloseMainMenuCoroutine());
+            AudioManager.instance.PlayMusic("inGameMusic");
+        }
     }
     public IEnumerator CloseMainMenuCoroutine()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
         inGameMenu.SetActive(true);
         mainMenu.SetActive(false);
         game.SetActive(true);
+        PlayerPrefs.SetInt("isFirstSession", 1);
     }
 
     public void OpenSettingsMenu()
@@ -58,6 +70,7 @@ public class ButtonManager : MonoBehaviour
 
     public void ActivateInGameSettings()
     {
+        backGround.SetActive(true);
         pauseMenu.SetActive(false);
         settingsMenu.SetActive(true);
         backButton.SetActive(true);
@@ -65,6 +78,7 @@ public class ButtonManager : MonoBehaviour
     
     public void DeactivateInGameSettings()
     {
+        backGround.SetActive(false);
         backButton.SetActive(false);
         settingsMenu.SetActive(false);
         pauseMenu.SetActive(true);

@@ -41,13 +41,14 @@ public class Fishing : MonoBehaviour
     {
         if (!isCatching)
         {
+            AudioManager.instance.PlaySFX("throw");
             catchButton.SetActive(false);
             isCatching = true;
             _poplavok = Instantiate(baitPrefab, point.position, Quaternion.identity, point);
             lr.positionCount = 2;
             isCasted = true;
             animator.SetTrigger("startCatch");
-            
+            AudioManager.instance.PlaySFX("fish");
             StartCoroutine(_fishManager.StartFishing());
         }
     }
