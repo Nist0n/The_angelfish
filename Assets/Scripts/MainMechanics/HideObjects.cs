@@ -18,6 +18,7 @@ public class HideObjects : MonoBehaviour
 
     public void OnMouseDown()
     {
+        AudioManager.instance.PlaySFX("click");
         LeanTween.scale(gameObject, scale, duration);
         LeanTween.color(gameObject, color, duration).setOnComplete(HideObject);
     }
