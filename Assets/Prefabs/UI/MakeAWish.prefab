@@ -46,6 +46,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5941448323764504405}
     m_Modifications:
+    - target: {fileID: 2240971459354934446, guid: c16122d0c2379644c9d6007262df1cbc,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 189.9231
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240971459354934446, guid: c16122d0c2379644c9d6007262df1cbc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.0385
+      objectReference: {fileID: 0}
     - target: {fileID: 2295270141543242221, guid: c16122d0c2379644c9d6007262df1cbc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -151,6 +161,26 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4919434328714641996, guid: c16122d0c2379644c9d6007262df1cbc,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 5.002655
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919434328714641996, guid: c16122d0c2379644c9d6007262df1cbc,
+        type: 3}
+      propertyPath: m_margin.y
+      value: 5.0024414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919434328714641996, guid: c16122d0c2379644c9d6007262df1cbc,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919434328714641996, guid: c16122d0c2379644c9d6007262df1cbc,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5707759066657108637, guid: c16122d0c2379644c9d6007262df1cbc,
         type: 3}
       propertyPath: m_Name
@@ -179,6 +209,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 111787434942723832, guid: 961748b26b841634a84369f13b3d1f4e,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 111787434942723832, guid: 961748b26b841634a84369f13b3d1f4e,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 792204450195719721, guid: 961748b26b841634a84369f13b3d1f4e,
         type: 3}
@@ -285,6 +325,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6544283081230600218, guid: 961748b26b841634a84369f13b3d1f4e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 193.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544283081230600218, guid: 961748b26b841634a84369f13b3d1f4e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.3216
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -304,6 +354,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5941448323764504405}
     m_Modifications:
+    - target: {fileID: 1238967525760917365, guid: 316dd58defd84244d96862fa5d956d02,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238967525760917365, guid: 316dd58defd84244d96862fa5d956d02,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0009613
+      objectReference: {fileID: 0}
     - target: {fileID: 1293172756990671414, guid: 316dd58defd84244d96862fa5d956d02,
         type: 3}
       propertyPath: m_Pivot.x
@@ -413,6 +473,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363051274176356759, guid: 316dd58defd84244d96862fa5d956d02,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363051274176356759, guid: 316dd58defd84244d96862fa5d956d02,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
