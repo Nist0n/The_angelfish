@@ -39,6 +39,7 @@ public class ChooseAWish : MonoBehaviour
 
     public void BadChoose()
     {
+        AudioManager.instance.PlaySFX("badWish");
         _fish.Score -= 4000;
         Time.timeScale = 1;
         AudioManager.instance.PlaySFX("meh");
