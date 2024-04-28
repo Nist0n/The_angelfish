@@ -593,9 +593,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4585650630038117686}
+  - component: {fileID: -4935088986197446272}
+  - component: {fileID: 2854756643907068682}
   m_Layer: 0
   m_Name: rod
-  m_TagString: Untagged
+  m_TagString: HideObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -624,6 +626,44 @@ Transform:
   - {fileID: 3904301123994186511}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-4935088986197446272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542531748635826427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ecba79ba3554664093c62cdc63e9ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjectL: {fileID: 2542531748635826427}
+  duration: 0.1
+  scale: {x: 1.5, y: 1.5, z: 1.5}
+  color: {r: 1, g: 1, b: 1, a: 0}
+  downScale: {x: 0.00001, y: 0.00001, z: 0.00001}
+--- !u!65 &2854756643907068682
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542531748635826427}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.8062174, z: 4.992427}
+  m_Center: {x: 0, y: 1.2418169, z: 0.37907887}
 --- !u!1 &2864939879134108455
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject backButton;
     public GameObject game;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject looseMenu;
     [SerializeField] private GameObject backGround;
     [SerializeField] private Image image;
 
@@ -20,6 +22,7 @@ public class ButtonManager : MonoBehaviour
         backButtonMenu.SetActive(true);
         settingsMenu.SetActive(false);
         inGameMenu.SetActive(false);
+        looseMenu.SetActive(false);
         mainMenu.SetActive(true);
         backGround.SetActive(true);
     }
@@ -82,5 +85,10 @@ public class ButtonManager : MonoBehaviour
         backButton.SetActive(false);
         settingsMenu.SetActive(false);
         pauseMenu.SetActive(true);
+    }
+
+    public void ResetTheGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
